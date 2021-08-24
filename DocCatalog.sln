@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocCatalog.Api.Auth", "DocCatalog.Api.Auth\DocCatalog.Api.Auth.csproj", "{3A2DED71-47BB-49F1-9AE7-3D96EE21E989}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A2DED71-47BB-49F1-9AE7-3D96EE21E989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A2DED71-47BB-49F1-9AE7-3D96EE21E989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A2DED71-47BB-49F1-9AE7-3D96EE21E989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A2DED71-47BB-49F1-9AE7-3D96EE21E989}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF83DC24-990C-4004-8834-84EF676D88EE}
+	EndGlobalSection
+EndGlobal
