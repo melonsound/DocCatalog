@@ -41,6 +41,8 @@ namespace DocCatalog.Api.Auth
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
 
+            services.AddHostedService<CatalogWatcherService>();
+
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
