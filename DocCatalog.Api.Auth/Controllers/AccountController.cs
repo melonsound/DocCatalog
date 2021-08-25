@@ -1,4 +1,6 @@
 ﻿using DocCatalog.Api.Auth.Models;
+using DocCatalog.Api.Auth.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,10 +15,24 @@ namespace DocCatalog.Api.Auth.Controllers
     public class AccountController : ControllerBase
     {
         private AccountContext _accountContext = null;
+        private IAccountService _acccountService = null;
 
-        public AccountController(AccountContext accountContext)
+        public AccountController(AccountContext accountContext, IAccountService accountService)
         {
             _accountContext = accountContext;
+            _acccountService = accountService;
+        }
+
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate([FromBody]Account account)
+        {
+            var accountResult = _acccountService.Authenticate(account.Username, account.Password);
+
+            if (accountResult == null)
+                return BadRequest(new { message = "Username or password is incorrect" });
+
+            return Ok(accountResult);
         }
 
         [HttpGet]

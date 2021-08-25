@@ -1,4 +1,6 @@
+using DocCatalog.Api.Auth.Helpers;
 using DocCatalog.Api.Auth.Models;
+using DocCatalog.Api.Auth.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -26,9 +28,16 @@ namespace DocCatalog.Api.Auth
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            var authOptionsConfiguration = Configuration.GetSection("Auth");
+
+            services.Configure<AuthOptions>(authOptionsConfiguration);
+
             services.AddDbContext<AccountContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
+
+            // configure DI for application services
+            services.AddScoped<IAccountService, AccountService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
