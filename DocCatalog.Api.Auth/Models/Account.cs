@@ -16,13 +16,9 @@ namespace DocCatalog.Api.Auth.Models
 
         public string Password { get; set; } //BCrypt Hash
 
-        [Column(TypeName = "nvarchar(24)")]
-        public Role[] Roles { get; set; }
-    }
+        public string Role { get; set; }
 
-    public enum Role
-    {
-        User,
-        Admin
+        [NotMapped]
+        public string Token { get; set; }
     }
 }

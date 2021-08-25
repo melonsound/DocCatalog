@@ -15,14 +15,5 @@ namespace DocCatalog.Api.Auth.Models
 
         public DbSet<Account> Accounts { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder
-                .Entity<Account>()
-                .Property(e => e.Roles)
-                .HasConversion(
-                    v => v.ToString(),
-                    v => (Role[])Enum.Parse(typeof(Role), v));
-        }
     }
 }
