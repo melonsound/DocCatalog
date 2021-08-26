@@ -39,9 +39,13 @@ namespace DocCatalog.Api.Auth
             var key = Encoding.ASCII.GetBytes(auth.Secret);
             services.AddDbContext<AccountContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ArchiveDocumentContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
 
             services.AddHostedService<CatalogWatcherService>();
+
+            //services.AddTransient<CatalogWatcherService>();
 
             services.AddAuthentication(x =>
             {
