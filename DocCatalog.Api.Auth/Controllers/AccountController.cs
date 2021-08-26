@@ -24,7 +24,7 @@ namespace DocCatalog.Api.Auth.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("authenticate")]
+        [HttpPost("login")]
         public IActionResult Authenticate([FromBody]Account account)
         {
             var accountResult = _acccountService.Authenticate(account.Username, account.Password);
