@@ -34,11 +34,7 @@ namespace DocCatalog.Api.Auth.Services
         {
             var account = _accountContext.Accounts.SingleOrDefault(x => x.Username == username);
 
-            if (!account.Password.Equals(password))
-                return null;
-
-            // return null if user not found
-            if (account == null)
+            if (account == null || !account.Password.Equals(password))
                 return null;
 
             var authParams = _authOptions.Value;

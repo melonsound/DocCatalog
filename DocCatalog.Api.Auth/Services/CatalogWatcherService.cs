@@ -22,7 +22,6 @@ namespace DocCatalog.Api.Auth.Services
         private readonly ILogger _logger;
         private FileSystemWatcher _fileSystemWatcher;
         private ArchiveDocument _archiveDocument = null;
-        private ArchiveDocumentContext _archiveDocumentContext;
 
         public CatalogWatcherService(ILogger<CatalogWatcherService> logger, IServiceScopeFactory scopeFactory)
         {
